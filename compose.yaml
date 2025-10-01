@@ -1,0 +1,57 @@
+services:
+  roadmap_database:
+    container_name: roadmap_database
+    build:
+      context: .
+      dockerfile: ./container/mariadb/Dockerfile
+    ports:
+      - 3306:3306
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      - MARIADB_USER=${DB_USERNAME}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+      - MARIADB_DATABASE=${DB_DATABASE}
+    volumes:
+      - roadmap_volume:/var/lib/mysql:z
+    networks:
+      - roadmap_network
+  roadmap_api:
+    container_name: roadmap_api
+    build:
+      context: .
+      dockerfile: ./container/php_fpm/Dockerfile
+    volumes:
+      - .:/srv/laravel_api:z
+    networks:
+      - roadmap_network
+  roadmap_server:
+    container_name: roadmap_server
+    build:
+      context: .
+      dockerfile: ./container/nginx/Dockerfile
+    ports:
+      - 8000:80
+    restart: always
+    volumes:
+      - .:/srv/laravel_api:z
+    networks:
+      - roadmap_network
+    depends_on:
+      - roadmap_api
+  roadmap_workspace:
+    container_name: roadmap_workspace
+    build:
+      context: .
+      dockerfile: ./container/php_cli/Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/srv/laravel_api:z
+    networks:
+      - roadmap_network
+networks:
+  roadmap_network:
+volumes:
+  roadmap_volume:

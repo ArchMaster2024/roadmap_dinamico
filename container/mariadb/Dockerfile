@@ -1,0 +1,8 @@
+FROM mariadb:latest
+
+ENV MYSQL_ROOT_PASSWORD=9.0G?&A|-dZv!:dWgO3;
+ENV MARIADB_USER=roadmap_master
+ENV MARIADB_PASSWORD=roadmap_master
+ENV MARIADB_DATABASE=roadmap_api
+
+EXPOSE 3306
