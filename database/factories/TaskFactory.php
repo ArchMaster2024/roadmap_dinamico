@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Step;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
@@ -17,9 +18,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->fake()->name(),
-            'status' => $this->fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked']),
-            'step_id' => $this->fake()->numberBetween(1, 10),
+            'title' => fake()->name(),
+            'status' => fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked']),
+            'progress' => 0,
+            'step_id' => Step::factory(),
         ];
     }
 }

@@ -15,6 +15,11 @@ class Task extends Model
     /**
      * @var array
      */
+    protected $with = ['subtasks'];
+
+    /**
+     * @var array
+     */
     protected $fillable = [
         'title',
         'status',

@@ -15,10 +15,20 @@ class Step extends Model
     /**
      * @var array
      */
+    protected $with = ['tasks'];
+
+    /**
+     * @var array
+     */
     protected $fillable = [
-        'steps',
-        'order',
         'roadmap_id',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $guarded = [
+        'steps',
     ];
 
     /**

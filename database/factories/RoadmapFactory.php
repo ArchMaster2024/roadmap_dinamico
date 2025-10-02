@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Roadmap>
@@ -17,9 +18,9 @@ class RoadmapFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->fake()->name(),
-            'description' => $this->fake()->sentence(),
-            'user_id' => $this->fake()->numberBetween(1, 10),
+            'name' => fake()->name(),
+            'description' => fake()->sentence(),
+            'user_id' => User::factory(),
         ];
     }
 }
