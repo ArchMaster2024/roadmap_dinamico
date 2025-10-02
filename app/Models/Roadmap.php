@@ -36,7 +36,7 @@ class Roadmap extends Model
      *
      * @return HasOne
      */
-    public function steps(): HasOne
+    public function step(): HasOne
     {
         return $this->hasOne(Step::class);
     }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Task;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Subtask>
@@ -17,9 +18,9 @@ class SubtaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->fake()->name(),
-            'status' => $this->fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked', 'review']),
-            'task_id' => $this->fake()->numberBetween(1, 10),
+            'name' => fake()->name(),
+            'status' => fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked', 'review']),
+            'task_id' => Task::factory(),
         ];
     }
 }

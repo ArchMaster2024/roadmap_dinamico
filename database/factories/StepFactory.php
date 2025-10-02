@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Roadmap;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Step>
@@ -17,9 +18,8 @@ class StepFactory extends Factory
     public function definition(): array
     {
         return [
-            'steps' => $this->fake()->numberBetween(1, 10),
-            'order' => $this->fake()->numberBetween(1, 10),
-            'roadmap_id' => $this->fake()->numberBetween(1, 10),
+            'steps' => 0,
+            'roadmap_id' => Roadmap::factory(),
         ];
     }
 }
