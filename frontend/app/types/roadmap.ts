@@ -12,6 +12,7 @@ export interface Task {
 }
 
 export interface Step {
+    steps: string;
     tasks: Task[];
 }
 

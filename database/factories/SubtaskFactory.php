@@ -18,7 +18,7 @@ class SubtaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->word(),
             'status' => fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked', 'review']),
             'task_id' => Task::factory(),
         ];

@@ -23,7 +23,6 @@ class Task extends Model
     protected $fillable = [
         'title',
         'status',
-        'progress',
         'step_id',
     ];
 

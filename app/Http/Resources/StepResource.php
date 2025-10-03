@@ -15,6 +15,7 @@ class StepResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'steps' => $this->steps,
             'tasks' => TaskResource::collection($this->whenLoaded('tasks')),
         ];
     }

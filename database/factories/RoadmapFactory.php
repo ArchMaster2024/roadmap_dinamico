@@ -18,8 +18,8 @@ class RoadmapFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'description' => fake()->sentence(),
+            'name' => fake()->word(),
+            'description' => fake()->paragraph(),
             'user_id' => User::factory(),
         ];
     }

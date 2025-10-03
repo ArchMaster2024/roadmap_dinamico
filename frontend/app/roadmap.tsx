@@ -26,8 +26,11 @@ export default function Roadmap({
         context = (
             <section className="w-full h-full flex md:flex-col flex-row justify-center content-center md:overflow-x-auto">
                 <article className="pt-10 md:pt-0 flex flex-col">
-                    <h2 className="text-center font-bold text-2xl text-danger-300 mb-10 md:hidden">Steps</h2>
-                    <div className="flex flex-col md:flex-row justify-center content-center gap-10">
+                    <h2 className="text-center font-bold text-2xl text-danger-300 mb-10 md:hidden">
+                        Steps: <br />
+                        {step.steps}
+                    </h2>
+                    <div className="flex flex-col md:flex-row justify-center content-center md:justify-start lg:justify-evenly gap-10">
                         {tasks.map((task: Task) => (
                             <TaskComponent key={task.id} task={task} />
                         ))}

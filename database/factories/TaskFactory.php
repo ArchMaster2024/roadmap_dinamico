@@ -18,9 +18,8 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->name(),
+            'title' => fake()->word(),
             'status' => fake()->randomElement(['completed', 'in_progress', 'pending', 'blocked']),
-            'progress' => 0,
             'step_id' => Step::factory(),
         ];
     }

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->string('title', 180)->comment('Task title, the type are varchar of 180 characters');
             $table->enum('status', ['completed', 'in_progress', 'pending', 'blocked'])->default('in_progress')->comment('Task status, the type is ENUM');
-            $table->decimal('progress', 5, 2)->default(0)->comment('Task progress, the type is DECIMAL of 5 total digits and 2 decimal digits');
             $table->foreignId('step_id')->constrained('steps');
             $table->timestamps();
         });

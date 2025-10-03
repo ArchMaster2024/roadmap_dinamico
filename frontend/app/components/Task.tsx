@@ -6,7 +6,6 @@ import {
     ModalContent,
     ModalHeader,
     ModalBody,
-    ModalFooter,
     useDisclosure
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
@@ -35,7 +34,7 @@ export default function TaskComponent({ task }: TaskProps) {
                 placement="center"
                 size="sm"
                 backdrop="opaque"
-                className="border border-danger-500 bg-none"
+                className="border border-primary-500 bg-none"
                 onOpenChange={onOpenChange}
             >
                 <ModalContent>
