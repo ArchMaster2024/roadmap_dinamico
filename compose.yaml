@@ -51,6 +51,20 @@ services:
       - .:/srv/laravel_api:z
     networks:
       - roadmap_network
+  roadmap_frontend:
+      container_name: roadmap_frontend
+      build:
+          context: .
+          dockerfile: ./container/react/Dockerfile
+      ports:
+          - 3000:5173
+      tty: true
+      restart: always
+      volumes:
+          - ./frontend:/app:z
+          - /app/node_modules
+      networks:
+          - roadmap_network
 networks:
   roadmap_network:
 volumes:
