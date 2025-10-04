@@ -61,6 +61,7 @@ cp .env.example .env
 ```
 
 3. Levantar los contenedores
+=======
 
 ```bash
 docker compose -f compose.yaml up -d --build
