@@ -54,8 +54,14 @@ o, si utilizas llaves ssh usa el método 2
 ```bash
 git clone git@github.com:ArchMaster2024/roadmap_dinamico.git
 ```
+2. Copiar el .env.example y definir las variables de base de datos
 
-2. Levantar los contenedores
+```bash
+cp .env.example .env
+```
+
+3. Levantar los contenedores
+=======
 
 ```bash
 docker compose -f compose.yaml up -d --build

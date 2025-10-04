@@ -51,6 +51,7 @@ export default function TaskComponent({ task }: TaskProps) {
                                 </p>
                             </ModalHeader>
                             <ModalBody>
+                                <h4 className="text-center text-lg font-bold">Subtasks</h4>
                                 <ul>
                                     {task.subtasks.map((subtask) => (
                                         <SubTaskComponent key={subtask.id} subTask={subtask} />
