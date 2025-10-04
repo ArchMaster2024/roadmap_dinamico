@@ -17,6 +17,11 @@ services:
       - roadmap_volume:/var/lib/mysql:z
     networks:
       - roadmap_network
+    healthcheck:
+        test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+        start_period: 10s
+        timeout: 5s
+        retries: 3
   roadmap_api:
     container_name: roadmap_api
     build:
@@ -26,6 +31,8 @@ services:
       - .:/srv/laravel_api:z
     networks:
       - roadmap_network
+    depends_on:
+      - roadmap_workspace
   roadmap_server:
     container_name: roadmap_server
     build:
@@ -38,8 +45,6 @@ services:
       - .:/srv/laravel_api:z
     networks:
       - roadmap_network
-    depends_on:
-      - roadmap_api
   roadmap_workspace:
     container_name: roadmap_workspace
     build:
@@ -51,6 +56,9 @@ services:
       - .:/srv/laravel_api:z
     networks:
       - roadmap_network
+    depends_on:
+        roadmap_database:
+            condition: service_healthy
   roadmap_frontend:
       container_name: roadmap_frontend
       build:

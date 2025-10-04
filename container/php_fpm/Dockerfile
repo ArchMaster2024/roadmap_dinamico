@@ -23,10 +23,10 @@ RUN echo "xdebug.mode=develop,profile,coverage,debug" >> /usr/local/etc/php/conf
     echo "xdebug.log_level=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
     echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ;
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 WORKDIR /srv/laravel_api
 
 COPY . .
-
-RUN chmod +x container/php_fpm/prepare_environment.sh && ./container/php_fpm/prepare_environment.sh
 
 EXPOSE 9000
