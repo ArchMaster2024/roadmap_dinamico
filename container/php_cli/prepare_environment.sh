@@ -8,4 +8,11 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 
 cd /srv/laravel_api
 
-chmod a+w -R storage bootstrap/cache
+if [ ! -d "vendor" ]; then
+    composer install
+fi
+
+php artisan migrate --seed
+
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
